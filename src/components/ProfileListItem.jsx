@@ -9,7 +9,23 @@ import Badge from 'react-bootstrap/Badge';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import { BsFillPenFill, BsTrash, BsThreeDotsVertical } from 'react-icons/bs';
 
-const ProfileListItem = () => {
+/** //! needs typed support
+ * ProfileListItem is just a view of 
+ * Profile interface (any contact)
+ * {
+ *  name,
+ *  email,
+ *  attributes...
+ *  
+ * }
+ */
+const ProfileListItem = ({
+  avatarUrl,
+  name,
+  position = 'Full Stack Developer',
+  email = 'alexistercero55@gmail.com',
+  projectID = 100
+}) => {
     return (
 <tr className='ProfileRow'>
     <th scope="row" className="ps-4">
@@ -22,18 +38,18 @@ const ProfileListItem = () => {
           </label>
         </div>
     </th>
-    <td className='image-profile'>
+    <td className='image-profileName'>
       <div className='
         d-flex 
         align-items-center
         px-2 my-2'>
         <Image roundedCircle
-        src='https://bootdey.com/img/Content/avatar/avatar1.png'
+        src={avatarUrl}
         width="25px"
         className='me-2'
         ></Image>
         <span >
-          Simon Ryles
+          {name}
         </span>
       </div>
     </td>
@@ -44,7 +60,7 @@ const ProfileListItem = () => {
         px-2
         '>
       <Badge bg="light" className='badge-soft-success'>
-        Full Stack Developer
+        {position}
       </Badge>
     </div>
     </td>
@@ -53,7 +69,7 @@ const ProfileListItem = () => {
         align-items-center 
         my-2 px-2
         '>
-        SimonRyles@minible.com
+        {email}
     </div>
     </td>
     <td className='project-number'>
@@ -62,13 +78,13 @@ const ProfileListItem = () => {
         justify-content-center
         my-2
         '>
-        125
+        {projectID}
       </div>
     </td>
     <td className='profile-options'>
     <ul className="list-inline mb-0">
       <li className="list-inline-item">
-        <Button variant="link" 
+        <Button variant="link" //needs onclick action
                 data-bs-toggle="tooltip" 
                 data-bs-placement="top" 
                 title="Edit" 
@@ -77,7 +93,7 @@ const ProfileListItem = () => {
         </Button>
       </li>
       <li className="list-inline-item">
-        <Button variant="link" 
+        <Button variant="link" //needs onclick action
                 data-bs-toggle="tooltip" 
                 data-bs-placement="top" 
                 title="Delete" 
@@ -91,7 +107,8 @@ const ProfileListItem = () => {
           variant="link" 
           className="font-size-18 "
           drop="down">
-          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#"//needs onclick action
+          >Action</Dropdown.Item>
           <Dropdown.Item href="#">Another action</Dropdown.Item>
           <Dropdown.Item href="#">Something else here</Dropdown.Item>
         </DropdownButton>

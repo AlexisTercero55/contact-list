@@ -34,9 +34,24 @@ const ContactList = () => {
   </tr>
 </thead>
 <tbody>
-  <ProfileListItem></ProfileListItem>
-  <ProfileListItem></ProfileListItem>
-  <ProfileListItem></ProfileListItem>
+  <ProfileListItem
+   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar1.png'}
+   name={'Alexis'}
+   position={'Data engineer'}>
+  
+  </ProfileListItem>
+  <ProfileListItem
+   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar2.png'}
+   name={'Alexis Tercero'}
+   position={'DevOps engineer'}>
+  
+  </ProfileListItem>
+  <ProfileListItem
+   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar3.png'}
+   name={'Uri.Sab'}
+   position={'Web Developer'}>
+  
+  </ProfileListItem>
 </tbody>
 </Table>
 </Col>
