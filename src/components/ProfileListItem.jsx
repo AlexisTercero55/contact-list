@@ -4,6 +4,7 @@
  * @mail    alexistercero55@gmail.com
  * @license MPL-2.0
  */
+import { useEffect } from 'react';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
@@ -26,6 +27,8 @@ const ProfileListItem = ({
   email = 'alexistercero55@gmail.com',
   projectID = 100
 }) => {
+
+  
     return (
 <tr className='ProfileRow'>
     <th scope="row" className="ps-4">

@@ -11,11 +11,13 @@ import Table from 'react-bootstrap/Table';
 import '../css/darkTable.css';
 import ProfileListItem from './ProfileListItem';
 
-const ContactList = () => {
-    return (
+const ContactList = ({profiles}) => {
+  // console.log(profiles[0].profile);
+return (
 <Row >
 <Col>
-<Table responsive bordered
+<Table className='table1'
+      responsive 
       hover size="sm"
       >
 <thead>
@@ -33,17 +35,20 @@ const ContactList = () => {
     <th scope="col">Action</th>
   </tr>
 </thead>
-<tbody>
+<tbody className='Profile-List-row'>
   <ProfileListItem
-   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar1.png'}
-   name={'Alexis'}
-   position={'Data engineer'}>
+   avatarUrl={profiles[0].profile.imgProfileSrc}
+   name={profiles[0].profile.name}
+   email={profiles[0].profile.email}
+   position={profiles[0].profile.position}
+  >
   
   </ProfileListItem>
   <ProfileListItem
-   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar2.png'}
-   name={'Alexis Tercero'}
-   position={'DevOps engineer'}>
+   avatarUrl={profiles[1].profile.imgProfileSrc}
+   name={profiles[1].profile.name}
+   email={profiles[1].profile.email}
+   position={profiles[1].profile.position}>
   
   </ProfileListItem>
   <ProfileListItem

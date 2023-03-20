@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #BD34FE;
-  background-color: #030f1a;
+  /* background-color: #030f1a; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -30,6 +30,10 @@ body{
   justify-content: center;
   height: 100vh;
   text-align: center;
+
+  background-color: #030f1a;
+
+  
   
 }
 

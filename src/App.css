@@ -54,10 +54,14 @@ button:focus-visible {
 .App{
   /* From https://css.glass */
   padding: 3em;
-background: rgba(255, 255, 255, 0.135);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 3px solid rgba(255, 255, 255, 0.134);
+  /* background-color: #e3d6e9; */
+  background: rgba(121, 231, 172, 0.778) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.064);
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #1c2340;
 }
