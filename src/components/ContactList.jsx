@@ -10,9 +10,13 @@ import Table from 'react-bootstrap/Table';
 
 import '../css/darkTable.css';
 import ProfileListItem from './ProfileListItem';
+import { useContext  } from 'react';
+import { ProfileContext } from '../context/ProfileContext';
 
-const ContactList = ({profiles}) => {
-  // console.log(profiles[0].profile);
+
+const ContactList = () => {
+  const PROFILES = useContext(ProfileContext);
+  console.log(PROFILES);
 return (
 <Row >
 <Col>
@@ -37,24 +41,29 @@ return (
 </thead>
 <tbody className='Profile-List-row'>
   <ProfileListItem
-   avatarUrl={profiles[0].profile.imgProfileSrc}
-   name={profiles[0].profile.name}
-   email={profiles[0].profile.email}
-   position={profiles[0].profile.position}
+   avatarUrl={PROFILES[0].profile.imgProfileSrc}
+   name={PROFILES[0].profile.name}
+   email={PROFILES[0].profile.email}
+   position={PROFILES[0].profile.position}
+   projectID={PROFILES[0].profile.projectID}
   >
   
   </ProfileListItem>
   <ProfileListItem
-   avatarUrl={profiles[1].profile.imgProfileSrc}
-   name={profiles[1].profile.name}
-   email={profiles[1].profile.email}
-   position={profiles[1].profile.position}>
+   avatarUrl={PROFILES[1].profile.imgProfileSrc}
+   name={PROFILES[1].profile.name}
+   email={PROFILES[1].profile.email}
+   position={PROFILES[1].profile.position}
+   projectID={PROFILES[1].profile.projectID}
+   >
   
   </ProfileListItem>
   <ProfileListItem
-   avatarUrl={'https://bootdey.com/img/Content/avatar/avatar3.png'}
-   name={'Uri.Sab'}
-   position={'Web Developer'}>
+   avatarUrl={PROFILES[2].profile.imgProfileSrc}
+   name={PROFILES[2].profile.name}
+   email={PROFILES[2].profile.email}
+   position={PROFILES[2].profile.position}
+   projectID={PROFILES[2].profile.projectID}>
   
   </ProfileListItem>
 </tbody>
