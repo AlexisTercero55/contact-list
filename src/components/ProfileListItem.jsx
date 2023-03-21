@@ -1,10 +1,13 @@
-/** 03/18/23 : CDMX/México.
+/** 03/21/23 : CDMX/México.
  * @author  @AlexisTercero55
  * @github  https://github.com/AlexisTercero55
  * @mail    alexistercero55@gmail.com
  * @license MPL-2.0
  */
-import { useEffect } from 'react';
+import { useContext } from 'react';
+import { ProfileContext, 
+         ProfileActions,
+         } from '../context/ProfileContext';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
@@ -21,12 +24,18 @@ import { BsFillPenFill, BsTrash, BsThreeDotsVertical } from 'react-icons/bs';
  * }
  */
 const ProfileListItem = ({
+  index,
   avatarUrl,
   name,
   position = 'Full Stack Developer',
   email = 'alexistercero55@gmail.com',
   projectID = 100
 }) => {
+
+  // console.log(index);
+  const  [PROFILES, dispatch] = useContext(ProfileContext);
+
+
 
   
     return (
@@ -91,7 +100,8 @@ const ProfileListItem = ({
                 data-bs-toggle="tooltip" 
                 data-bs-placement="top" 
                 title="Edit" 
-                className="text-primary">
+                className="text-primary"
+                onClick={()=> dispatch({type:ProfileActions.changeProject, index})}>
           <BsFillPenFill size={18} />
         </Button>
       </li>

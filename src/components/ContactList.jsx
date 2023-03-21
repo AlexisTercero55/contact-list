@@ -1,4 +1,4 @@
-/** 03/18/23 : CDMX/México.
+/** 03/21/23 : CDMX/México.
  * @author  @AlexisTercero55
  * @github  https://github.com/AlexisTercero55
  * @mail    alexistercero55@gmail.com
@@ -15,14 +15,14 @@ import { ProfileContext } from '../context/ProfileContext';
 
 
 const ContactList = () => {
-  const PROFILES = useContext(ProfileContext);
-  console.log(PROFILES);
+  const  [PROFILES, dispatch] = useContext(ProfileContext);
+  // console.log(PROFILES);
 return (
 <Row >
 <Col>
 <Table className='table1'
       responsive 
-      hover size="sm"
+      hover 
       >
 <thead>
   <tr>
@@ -40,32 +40,18 @@ return (
   </tr>
 </thead>
 <tbody className='Profile-List-row'>
-  <ProfileListItem
-   avatarUrl={PROFILES[0].profile.imgProfileSrc}
-   name={PROFILES[0].profile.name}
-   email={PROFILES[0].profile.email}
-   position={PROFILES[0].profile.position}
-   projectID={PROFILES[0].profile.projectID}
-  >
+  {PROFILES.map((user, index) => (
+    <ProfileListItem
+      key={index}
+      index={index}
+      avatarUrl={user?.imgProfileSrc}
+      name={user?.name}
+      email={user?.email}
+      position={user?.position}
+      projectID={user?.projectID}
+    />
+  ))}
   
-  </ProfileListItem>
-  <ProfileListItem
-   avatarUrl={PROFILES[1].profile.imgProfileSrc}
-   name={PROFILES[1].profile.name}
-   email={PROFILES[1].profile.email}
-   position={PROFILES[1].profile.position}
-   projectID={PROFILES[1].profile.projectID}
-   >
-  
-  </ProfileListItem>
-  <ProfileListItem
-   avatarUrl={PROFILES[2].profile.imgProfileSrc}
-   name={PROFILES[2].profile.name}
-   email={PROFILES[2].profile.email}
-   position={PROFILES[2].profile.position}
-   projectID={PROFILES[2].profile.projectID}>
-  
-  </ProfileListItem>
 </tbody>
 </Table>
 </Col>
