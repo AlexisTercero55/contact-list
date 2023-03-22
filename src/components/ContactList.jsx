@@ -19,7 +19,7 @@ const ContactList = () => {
   const  [PROFILES, dispatch] = useContext(ProfileContext);
   // console.log(PROFILES);
 return (
-<Row >
+<Row className='my-3'>
 <Col>
 <Table className='table1'
        responsive

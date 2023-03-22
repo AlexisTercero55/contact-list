@@ -94,7 +94,7 @@ const ProfileListItem = ({
       </div>
     </td>
     <td className='profile-options'>
-    <ul className="list-inline mb-0">
+    <ul className="list-inline mb-0 d-flex flex-row">
       <li className="list-inline-item">
         <Button variant="link" //needs onclick action
                 data-bs-toggle="tooltip" 

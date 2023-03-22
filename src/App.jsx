@@ -14,7 +14,7 @@ function App() {
   return (
     <Container fluid >
     <main className="App">
-      <header>
+      <header className='my-3'>
         <h1>Contact list</h1>
       </header>
       <ProfileContextProvider>
