@@ -21,7 +21,8 @@ const ProfileData = (
 }
 
 export const ProfileActions = {
-  changeProject : 'Profile/Project'
+  changeProject : 'Profile/Project',
+  deleteProfile : 'Profile/Delete'//!FIXME: needs a user confirm to delete profile
 }
 export const InitialState = [
     ProfileData(),
@@ -33,17 +34,23 @@ export const InitialState = [
     'Data engineer',111)
 ];
 
-export const ProfileReducer = (state=ProfileData(),action)=>{
+export const ProfileReducer = (state=[ProfileData()],action)=>{
   //const { type, payload } = action;
+  let newState;
   switch(action.type)
   {
     case ProfileActions.changeProject:
-      const index = action.index;
-      const newState = [...state]; // create a copy of the state array
-      const selectedProfile = newState[index]; // get the selected profile object
+      newState = [...state]; // create a copy of the state array
+      const selectedProfile = newState[action.index]; // get the selected profile object
       const updatedProfile = { ...selectedProfile, projectID: selectedProfile.projectID + 1 }; // create a new object with the updated projectID property
-      newState[index] = updatedProfile; // replace the selected object with the updated object
+      newState.splice(action.index, 1, updatedProfile); // replace the selected object with the updated object using splice()
       return newState; // return the updated state array
+
+    case ProfileActions.deleteProfile:
+      console.log('To delete profile: ', action.index);
+      newState = [...state]; // make a copy of the state array
+      newState.splice(action.index, 1); // remove the object at the specified index
+      return newState;
 
     default:
       return state;

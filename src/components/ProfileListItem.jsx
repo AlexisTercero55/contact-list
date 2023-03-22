@@ -110,7 +110,8 @@ const ProfileListItem = ({
                 data-bs-toggle="tooltip" 
                 data-bs-placement="top" 
                 title="Delete" 
-                className="text-danger">
+                className="text-danger"
+                onClick={()=> dispatch({type:ProfileActions.deleteProfile, index})}>
           <BsTrash size={18} />
         </Button>
       </li>
