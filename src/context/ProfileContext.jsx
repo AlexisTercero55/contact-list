@@ -10,13 +10,15 @@ const ProfileData = (
   email='alexistercero55@gmail.com',
   imgProfileSrc = 'https://bootdey.com/img/Content/avatar/avatar1.png',
   position = 'Full Stack Developer',
-  projectID = 105) =>{
+  projectID = 105,
+  isConnected = false) =>{
   return {
     name,
     email,
     imgProfileSrc,
     position,
-    projectID
+    projectID,
+    isConnected
   }
 }
 
