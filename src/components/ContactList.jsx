@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 
+
 import '../css/darkTable.css';
 import ProfileListItem from './ProfileListItem';
 import { useContext  } from 'react';
@@ -21,8 +22,8 @@ return (
 <Row >
 <Col>
 <Table className='table1'
-      responsive 
-      hover 
+       responsive
+       hover
       >
 <thead>
   <tr>
@@ -51,7 +52,6 @@ return (
       projectID={user?.projectID}
     />
   ))}
-  
 </tbody>
 </Table>
 </Col>

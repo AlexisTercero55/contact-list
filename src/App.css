@@ -53,7 +53,7 @@ button:focus-visible {
 
 .App{
   /* From https://css.glass */
-  padding: 3em;
+  /* padding: 3em; */
   /* background-color: #e3d6e9; */
   background: rgba(121, 231, 172, 0.778) !important;
   border-radius: 16px;

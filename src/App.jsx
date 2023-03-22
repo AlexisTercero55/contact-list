@@ -7,21 +7,21 @@
 import { useState, useContext  } from 'react';
 import { ProfileContextProvider } from './context/ProfileContext';
 import './App.css'
-// import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 import ContactList from './components/ContactList';
 
 function App() {
   return (
+    <Container fluid >
     <main className="App">
       <header>
         <h1>Contact list</h1>
       </header>
-      {/* <Container fluid  > */}
       <ProfileContextProvider>
         <ContactList ></ContactList>
       </ProfileContextProvider>
-      {/* </Container> */}
     </main>
+    </Container>
   )
 }
 
