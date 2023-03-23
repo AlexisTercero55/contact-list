@@ -5,6 +5,9 @@
  * @license MPL-2.0
  */
 import { createContext, useReducer } from 'react';
+/**
+ * ## Factory funtion for ProfileData
+ */
 const ProfileData = (
   name='Alexis',
   email='alexistercero55@gmail.com',
@@ -24,7 +27,8 @@ const ProfileData = (
 
 export const ProfileActions = {
   changeProject : 'Profile/Project',
-  deleteProfile : 'Profile/Delete'//!FIXME: needs a user confirm to delete profile
+  deleteProfile : 'Profile/Delete',//!FIXME | Done | needs a user confirm to delete profile
+  newProfile    : 'Profile/newProfile',
 }
 export const InitialState = [
     ProfileData(),
@@ -36,10 +40,12 @@ export const InitialState = [
     'Data engineer',111)
 ];
 
-export const ProfileReducer = (state=[ProfileData()],action)=>{
-  //const { type, payload } = action;
+export const ProfileReducer = (state=[ProfileData()],
+                               action) => 
+{      
+  const { type, payload } = action;
   let newState;
-  switch(action.type)
+  switch(type)
   {
     case ProfileActions.changeProject:
       newState = [...state]; // create a copy of the state array
@@ -49,9 +55,19 @@ export const ProfileReducer = (state=[ProfileData()],action)=>{
       return newState; // return the updated state array
 
     case ProfileActions.deleteProfile:
-      console.log('To delete profile: ', action.index);
+      // console.log('To delete profile: ', action.index);
       newState = [...state]; // make a copy of the state array
       newState.splice(action.index, 1); // remove the object at the specified index
+      return newState;
+
+    case ProfileActions.newProfile:
+      newState = [...state,ProfileData(
+        payload.name,
+        payload.email,
+        'https://bootdey.com/img/Content/avatar/avatar4.png',
+        payload.position,
+        payload.projectID
+      )]
       return newState;
 
     default:

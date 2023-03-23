@@ -17,7 +17,6 @@ import { ProfileContext } from '../context/ProfileContext';
 
 const ContactList = () => {
   const  [PROFILES, dispatch] = useContext(ProfileContext);
-  // console.log(PROFILES);
 return (
 <Row className='my-3'>
 <Col>

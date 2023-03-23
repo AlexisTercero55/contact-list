@@ -4,8 +4,9 @@
  * @mail    alexistercero55@gmail.com
  * @license MPL-2.0
  */
-import { useState  } from 'react';
-import { ProfileContextProvider } from './context/ProfileContext';
+import { useState, useContext } from 'react';
+import {  ProfileContext,
+  ProfileActions } from './context/ProfileContext';
 import './App.css'
 import Container from 'react-bootstrap/Container';
 import ContactList from './components/ContactList';
@@ -20,17 +21,26 @@ function App() {
   const [position, setPosition] = useState('');
   const [mail, setMail] = useState('');
   const [projectID, setprojectID] = useState('');
+  const  [PROFILES, dispatch] = useContext(ProfileContext);
   const handleClose = (e) => {
+    e?.preventDefault();
     if(e)
     {
-      e?.preventDefault();
+      dispatch({
+        type: ProfileActions.newProfile,
+        payload: {
+          name: name,
+          position: position,
+          email: mail,
+          projectID: parseInt(projectID)
+        }
+      })
 
+      setname('');
+      setPosition('');
+      setMail('');
+      setprojectID('');
       
-
-      console.log(name);
-      console.log(position);
-      console.log(mail);
-      console.log(projectID);
     }
     
     setShow(false);
@@ -48,9 +58,9 @@ function App() {
         New contact
       </Button>
       
-      <ProfileContextProvider>
+      {/* <ProfileContextProvider> */}
         <ContactList ></ContactList>
-      </ProfileContextProvider>
+      {/* </ProfileContextProvider> */}
     </main>
 
 
