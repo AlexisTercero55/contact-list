@@ -29,6 +29,7 @@ export const ProfileActions = {
   changeProject : 'Profile/Project',
   deleteProfile : 'Profile/Delete',//!FIXME | Done | needs a user confirm to delete profile
   newProfile    : 'Profile/newProfile',
+  updateConnection:'Profile/updateConnection'
 }
 export const InitialState = [
     ProfileData(),
@@ -45,12 +46,14 @@ export const ProfileReducer = (state=[ProfileData()],
 {      
   const { type, payload } = action;
   let newState;
+  let selectedProfile;
+  let updatedProfile ;
   switch(type)
   {
     case ProfileActions.changeProject:
       newState = [...state]; // create a copy of the state array
-      const selectedProfile = newState[action.index]; // get the selected profile object
-      const updatedProfile = { ...selectedProfile, projectID: selectedProfile.projectID + 1 }; // create a new object with the updated projectID property
+      selectedProfile = newState[action.index]; // get the selected profile object
+      updatedProfile = { ...selectedProfile, projectID: selectedProfile.projectID + 1 }; // create a new object with the updated projectID property
       newState.splice(action.index, 1, updatedProfile); // replace the selected object with the updated object using splice()
       return newState; // return the updated state array
 
@@ -59,6 +62,13 @@ export const ProfileReducer = (state=[ProfileData()],
       newState = [...state]; // make a copy of the state array
       newState.splice(action.index, 1); // remove the object at the specified index
       return newState;
+
+    case ProfileActions.updateConnection:
+      newState = [...state]; // make a copy of the state array
+      selectedProfile = newState[payload.index]; // get the selected profile object
+      updatedProfile = { ...selectedProfile, isConnected: payload.isConneted }; // create a new object with the updated projectID property
+      newState.splice(payload.index, 1, updatedProfile); // replace the selected object with the updated object using splice()
+      return newState; // return the updated state array
 
     case ProfileActions.newProfile:
       newState = [...state,ProfileData(

@@ -40,7 +40,7 @@ function App() {
       setPosition('');
       setMail('');
       setprojectID('');
-      
+
     }
     
     setShow(false);
@@ -58,9 +58,7 @@ function App() {
         New contact
       </Button>
       
-      {/* <ProfileContextProvider> */}
         <ContactList ></ContactList>
-      {/* </ProfileContextProvider> */}
     </main>
 
 

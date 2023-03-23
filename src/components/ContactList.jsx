@@ -27,10 +27,10 @@ return (
 <thead>
   <tr>
     <th scope="col" className="ps-4" >
-      <div className="form-check font-size-16">
+      {/* <div className="form-check font-size-16">
         <input type="checkbox" className="form-check-input" id="contacusercheck" />
         <label className="form-check-label" htmlFor="contacusercheck"></label>
-      </div>
+      </div> */}
     </th>
     <th scope="col">Name</th>
     <th scope="col">Position</th>

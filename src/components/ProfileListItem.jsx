@@ -12,6 +12,7 @@ import Badge from 'react-bootstrap/Badge';
 import Modal from 'react-bootstrap/Modal';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import { BsFillPenFill, BsTrash, BsThreeDotsVertical } from 'react-icons/bs';
+import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 
 
 const ProfileListItem = ({
@@ -23,6 +24,10 @@ const ProfileListItem = ({
   projectID = 100
 }) => {
   const  [PROFILES, dispatch] = useContext(ProfileContext);
+  const [isconnected, setIsconnected] = useState(PROFILES[index].isConnected);
+  // const updateConnection = (checked)=>{
+
+  // }
   // modal logic : delete profile confirmation
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -35,16 +40,25 @@ const ProfileListItem = ({
 
   return (
   <>
-  <tr className='ProfileRow'>
-      <th scope="row" className="ps-4">
-          <div className="form-check my-2">
-            <input type="checkbox" 
-              className="form-check-input" 
-              id="contacusercheck1" />
-            <label className="form-check-label" 
-                  htmlFor="contacusercheck1">
-            </label>
-          </div>
+  <tr className='ProfileRow '>
+      <th scope="row" >
+      <BootstrapSwitchButton
+        // className='bg-danger'
+        checked={isconnected}
+        onlabel='on'
+        offlabel='off'
+        size="sm" 
+        // width={50} height={50} 
+        onChange={(checked)=>{dispatch({
+          type:ProfileActions.updateConnection,
+          payload : {
+            index:index,
+            isConneted: !isconnected
+          }});
+          setIsconnected(!isconnected);
+        }}
+        onstyle="success" offstyle="danger"
+      />
       </th>
       <td className='image-profileName'>
         <div className='
